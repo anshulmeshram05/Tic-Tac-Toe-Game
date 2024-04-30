@@ -1,0 +1,156 @@
+body {
+  font-family: "Arial", sans-serif;
+  height: 100%;
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  overflow: hidden;
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell {
+  font-family: "Roboto", sans-serif;
+  width: calc(100px - 4px); 
+  height: calc(100px - 4px); 
+  border: 2px solid transparent;
+  cursor: pointer;
+  line-height: 100px;
+  font-size: 48px;
+  color: #fff;
+  background-color: #333;
+  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  animation: bounce 1s infinite alternate;
+  border-radius: 10px;
+}
+
+
+
+.cell:hover {
+  transform: scale(1.1);
+  border-color: #cacaca;
+  background-color: #444;
+  box-shadow: 0 0 20px rgba(194, 194, 194, 0.5);
+}
+
+
+.cell:not(:nth-child(3n)) {
+  border-right: 2px solid #222;
+}
+
+.cell:not(:nth-last-child(-n+3)) {
+  border-bottom: 2px solid #222;
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: #f4d03f;
+}
+
+.game--title {
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  margin-bottom: 20px;
+  animation: changeColor 5s infinite alternate;
+}
+
+@keyframes changeColor {
+  0% {
+    color: #3f42f4;
+  }
+  50% {
+    color: #4caf50;
+  }
+  100% {
+    color: #e74c3c;
+  }
+}
+
+
+@keyframes glowTitle {
+  0% {
+    text-shadow: 0 0 10px #f4d03f;
+  }
+  100% {
+    text-shadow: 0 0 20px #f4d03f;
+  }
+}
+
+.game--container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 306px;
+  margin: 10px auto;
+  border: 5px solid;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  animation: changeBorderColor 5s infinite alternate;
+}
+
+@keyframes changeBorderColor {
+  0% {
+    border-color: #3f42f4;
+  }
+  50% {
+    border-color: #4caf50;
+  }
+  100% {
+    border-color: #e74c3c;
+  }
+}
+
+.game--status {
+  font-size: 50px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  margin: 20px auto;
+}
+
+.game--status.x-player {
+  color: #4caf50;
+}
+
+.game--status.o-player {
+  color: #e74c3c;
+}
+
+.game--restart {
+  background: linear-gradient(to bottom right, #f4d03f, #e5b143);
+  width: 200px;
+  height: 50px;
+  font-size: 25px;
+  color: #161616;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  animation: changeButtonColor 5s infinite alternate;
+}
+
+@keyframes changeButtonColor {
+  0% {
+    background: linear-gradient(to bottom right, #f4d03f, #e5b143);
+    color: #000000;
+  }
+  50% {
+    background: linear-gradient(to bottom right, #4caf50, #00bcd4);
+    color: #000000;
+  }
+  100% {
+    background: linear-gradient(to bottom right, #e74c3c, #9b59b6);
+    color: #000000;
+  }
+}
+
+.game--restart:hover {
+  background: linear-gradient(to bottom right, #e5b143, #f4d03f);
+  color: #fff;
+}
